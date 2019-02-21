@@ -9,9 +9,17 @@ namespace ClassesIntro
 {
     public class Dog
     {
+
         public string Breed;
         public int Height;
         public string Name;
+
+        public Dog(string name, int height, string breed)
+        {
+            Name = name;
+            Height = height;
+            Breed = breed;
+        }
 
         public void Bark()
         {
