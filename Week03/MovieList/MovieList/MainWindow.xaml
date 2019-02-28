@@ -12,6 +12,12 @@
 
         <TextBlock x:Name="textBlockReleaseYear" TextWrapping="Wrap" Height="23" Text="Release Year: "/>
         <TextBox x:Name="textBoxReleaseYear" Height="23" TextWrapping="Wrap" Text=""/>
+        <TextBlock x:Name="textBlockDirector" TextWrapping="Wrap" Text="Director: "/>
+        <TextBox x:Name="textBoxDirector" Height="23" TextWrapping="Wrap"/>
+        <TextBlock x:Name="textBlockLength" TextWrapping="Wrap" Text="Length: "/>
+        <TextBox x:Name="textBoxLength" Height="23" TextWrapping="Wrap"/>
+        <TextBlock x:Name="textBlockGenre" TextWrapping="Wrap" Text="Genre: "/>
+        <TextBox x:Name="textBoxgenre" Height="23" TextWrapping="Wrap"/>
         <Button x:Name="buttonAddMovie" Content="Add Movie" Click="buttonAddMovie_Click"/>
         <Button x:Name="buttonShowAll" Content="Show All Movies" Click="buttonShowAll_Click"/>
     </StackPanel>
