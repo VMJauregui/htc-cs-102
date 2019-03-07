@@ -49,6 +49,61 @@ namespace InheritanceIntro
             {
                 d.SayName();
             }
+
+            Duck duck1 = new Duck(25, "Harry");
+            Duck duck2 = new Duck(45, "Henrietta");
+
+            List<Duck> ducks = new List<Duck>();
+            ducks.Add(duck1);
+            ducks.Add(duck2);
+
+            foreach (Duck duck in ducks)
+            {
+                duck.SayName();
+            }
+
+            Frog frog1 = new Frog(25, "Gary", false);
+            Frog frog2 = new Frog(45, "Stan", true);
+
+            List<Frog> frogs = new List<Frog>();
+            frogs.Add(frog1);
+            frogs.Add(frog2);
+
+            foreach (Frog frog in frogs)
+            {
+                frog.SayName();
+            }
+            //separation
+            WarElephant warElephant1 = new WarElephant(25, "Joe", 5);
+            WarElephant warElephant2 = new WarElephant(45, "Zach", 10);
+
+            List<WarElephant> warElephants = new List<WarElephant>();
+            warElephants.Add(warElephant1);
+            warElephants.Add(warElephant2);
+
+            foreach (WarElephant warElephant in warElephants)
+            {
+                warElephant.SayName();
+            }
+
+        }
+
+        private void Quack_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Duck duck = new Duck();
+            duck.Quack();
+        }
+
+        private void Ribbit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frog frog = new Frog();
+            frog.Ribbit();
+        }
+
+        private void SpineCrush_Button_Click(object sender, RoutedEventArgs e)
+        {
+            WarElephant warElephant = new WarElephant();
+            warElephant.SpineCrush();
         }
     }
 }

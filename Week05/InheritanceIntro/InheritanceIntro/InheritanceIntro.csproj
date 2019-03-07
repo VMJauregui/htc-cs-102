@@ -62,6 +62,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Animal.cs" />
+    <Compile Include="Tree.cs" />
+    <Compile Include="Organism.cs" />
+    <Compile Include="WarElephant.cs" />
+    <Compile Include="Frog.cs" />
+    <Compile Include="Duck.cs" />
     <Compile Include="Dog.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
