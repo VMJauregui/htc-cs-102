@@ -5,14 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InheritanceIntro"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="300">
+        Title="MainWindow" Height="650" Width="358">
     <StackPanel>
-        <Image Source="dog.jpg" Width="200"/>
-        <Button Click="Bark_Button_Click">Bark</Button>
-        <Image Source="duck.jpg" Width="200"/>
-        <Button Click="Quack_Button_Click">Quack</Button>
-        <Image Source="frog.jpg" Width="200"/>
-        <Button Click="Ribbit_Button_Click">Ribbit</Button>
-        <Button Click="SayName_Button_Click">Say Name</Button>
+        <ListView x:Name="lvAnimals" Height="150px" Margin="0,0,0,10" SelectionChanged="lvAnimals_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="150" Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Width="100" Header="Height" DisplayMemberBinding="{Binding Height}"/>
+                    <GridViewColumn Width="100" Header="Weight" DisplayMemberBinding="{Binding Weight}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Click="SayName_Button_Click" Content="Say Name"/>
     </StackPanel>
 </Window>

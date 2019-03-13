@@ -33,57 +33,71 @@ namespace InheritanceIntro
 
         private void SayName_Button_Click(object sender, RoutedEventArgs e)
         {
+            List<Animal> animals = new List<Animal>();
             // Define a new List of dogs
-            List<Dog> dogs = new List<Dog>();
+            //List<Dog> dogs = new List<Dog>();
             
             // Instantiate some dog objects
             Dog dog1 = new Dog("Muppet", 20, "Rolf");
             Dog dog2 = new Dog("Golden Retriever", 30, "Air Bud");
 
             // Add the dogs to the list
-            dogs.Add(dog1);
-            dogs.Add(dog2);
+            animals.Add(dog1);
+            animals.Add(dog2);
 
             // Loop through the list and call a method on the objects
+            /*
             foreach (Dog d in dogs)
             {
                 d.SayName();
             }
+            */
 
             Duck duck1 = new Duck(25, "Harry");
             Duck duck2 = new Duck(45, "Henrietta");
 
-            List<Duck> ducks = new List<Duck>();
-            ducks.Add(duck1);
-            ducks.Add(duck2);
+            //List<Duck> ducks = new List<Duck>();
+            animals.Add(duck1);
+            animals.Add(duck2);
 
+            /*
             foreach (Duck duck in ducks)
             {
                 duck.SayName();
             }
+            */
 
             Frog frog1 = new Frog(25, "Gary", false);
             Frog frog2 = new Frog(45, "Stan", true);
 
-            List<Frog> frogs = new List<Frog>();
-            frogs.Add(frog1);
-            frogs.Add(frog2);
-
+            //List<Frog> frogs = new List<Frog>();
+            animals.Add(frog1);
+            animals.Add(frog2);
+            /*
             foreach (Frog frog in frogs)
             {
                 frog.SayName();
             }
+            */
+
             //separation
-            WarElephant warElephant1 = new WarElephant(25, "Joe", 5);
-            WarElephant warElephant2 = new WarElephant(45, "Zach", 10);
+            WarElephant warElephant1 = new WarElephant(65, "Joe", 5);
+            WarElephant warElephant2 = new WarElephant(85, "Zach", 10);
 
-            List<WarElephant> warElephants = new List<WarElephant>();
-            warElephants.Add(warElephant1);
-            warElephants.Add(warElephant2);
+            //List<WarElephant> warElephants = new List<WarElephant>();
+            animals.Add(warElephant1);
+            animals.Add(warElephant2);
 
+            /*
             foreach (WarElephant warElephant in warElephants)
             {
                 warElephant.SayName();
+            }
+            */
+
+            foreach (Animal animal in animals)
+            {
+                animal.SayName();
             }
 
         }
