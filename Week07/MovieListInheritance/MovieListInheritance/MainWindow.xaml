@@ -12,20 +12,27 @@
                 <GridView>
                     <GridViewColumn Width="150" Header="Title" DisplayMemberBinding="{Binding Title}"></GridViewColumn>
                     <GridViewColumn Width="100" Header="Release Year" DisplayMemberBinding="{Binding ReleaseYear}"></GridViewColumn>
+                    <GridViewColumn Width="100" Header="Animation Studio" DisplayMemberBinding="{Binding AnimationStudio}"></GridViewColumn>
+                    <GridViewColumn Width="100" Header="Animation Type" DisplayMemberBinding="{Binding AnimationType}"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
         <TextBlock>Title</TextBlock>
         <TextBox Name="titleInput" Margin="0,0,0,15"></TextBox>
         <TextBlock>Release Year</TextBlock>
-        <TextBox Name="releaseYearInput" Margin="0,0,0,15"></TextBox>
-        <Button Click="AddButton_Click" HorizontalAlignment="Center" Margin="0,0,0,10">Add</Button>
-        
+        <TextBox x:Name="releaseYearInput" Margin="0,0,0,15"/>
+        <Button Click="AddMovieButton_Click" HorizontalAlignment="Center" Margin="218,0,209,10" Content="Add Movie" Width="70"/>
+        <TextBlock>AnimationStudio</TextBlock>
+        <TextBox Name="animationStudio" Margin="0,0,0,15"></TextBox>
+        <TextBlock>AnimationType</TextBlock>
+        <TextBox Name="animationType" Margin="0,0,0,15"></TextBox>
+        <Button Click="AddAnimatedMovieButton_Click" HorizontalAlignment="Center" Margin="190,0,187,10" Width="120">Add Animated Movie</Button>
+
         <!-- Border surrounding Animated Movie options -->
         <Border BorderThickness="1" BorderBrush="Gray" Padding="8">
             <StackPanel>
                 <!-- Put Animated Movie options in here -->
-                
+
             </StackPanel>
         </Border>
     </StackPanel>

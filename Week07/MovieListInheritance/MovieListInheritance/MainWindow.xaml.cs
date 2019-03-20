@@ -31,8 +31,19 @@ namespace MovieList
             lvMovies.ItemsSource = MovieList;
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private void AddMovieButton_Click(object sender, RoutedEventArgs e)
         {
+            int releaseYear = 2003;
+
+            try
+            {
+                releaseYear = int.Parse(releaseYearInput.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please enter in an int value for ReleaseYear.");
+            }
+
             Movie movieToAdd = new Movie(titleInput.Text, int.Parse(releaseYearInput.Text));
 
             MovieList.Add(movieToAdd);
@@ -56,6 +67,29 @@ namespace MovieList
             {
                 selectedMovie.ShowDetails();
             }
+        }
+
+        private void AddAnimatedMovieButton_Click(object sender, RoutedEventArgs e)
+        {
+            int releaseYear = 2003;
+                
+            try
+            {
+                releaseYear = int.Parse(releaseYearInput.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please enter in an int value for ReleaseYear.");
+            }
+
+            Movie movieToAdd = new AnimatedMovie(titleInput.Text, releaseYear, animationStudio.Text, animationType.Text);
+
+            MovieList.Add(movieToAdd);
+
+            titleInput.Clear();
+            releaseYearInput.Clear();
+            animationStudio.Clear();
+            animationType.Clear();
         }
     }
 }
