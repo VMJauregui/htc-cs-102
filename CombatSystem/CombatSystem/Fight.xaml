@@ -7,14 +7,13 @@
         mc:Ignorable="d"
         Title="Fight" Height="400" Width="580">
     <Grid Margin="0,1,0,-1">
-        <Button x:Name="FireBolt" Content="Fire Bolt" HorizontalAlignment="Left" Margin="0,315,0,0" VerticalAlignment="Top" Width="111" Height="54" Click="FireBolt_Click"/>
-        <Button x:Name="AirLash" Content="Air Lash" HorizontalAlignment="Left" Margin="111,315,0,0" VerticalAlignment="Top" Width="111" Height="54" Click="AirLash_Click"/>
+        <Button x:Name="FireBolt" Content="Fire Bolt" HorizontalAlignment="Left" Margin="222,261,0,0" VerticalAlignment="Top" Width="111" Height="54" Click="FireBolt_Click"/>
+        <Button x:Name="AirLash" Content="Air Lash" HorizontalAlignment="Left" Margin="332,261,0,0" VerticalAlignment="Top" Width="111" Height="54" Click="AirLash_Click"/>
         <Button x:Name="WaterWhip" Content="Water Whip" HorizontalAlignment="Left" Margin="222,315,0,0" VerticalAlignment="Top" Width="111" Height="54" Click="WaterWhip_Click"/>
         <Button x:Name="RockSmash" Content="Rock Smash" HorizontalAlignment="Left" Margin="333,315,0,0" VerticalAlignment="Top" Width="111" Height="54" Click="RockSmash_Click"/>
         <Button x:Name="Heal" Content="Heal" HorizontalAlignment="Left" Margin="443,315,0,0" VerticalAlignment="Top" Width="129" Height="54" Click="Heal_Click"/>
         <Button x:Name="CheckStats" Content="Check Stats" HorizontalAlignment="Left" Margin="0,261,0,0" VerticalAlignment="Top" Width="111" Height="54" Click="CheckStats_Click"/>
-        <Button x:Name="End" Content="End" HorizontalAlignment="Left" Margin="445,207,-1,0" VerticalAlignment="Top" Width="128" Height="54" Click="End_Click"/>
-        <Button x:Name="CheckEnemyStats" Content="Check Enemy Stats" HorizontalAlignment="Left" Margin="222,261,0,0" VerticalAlignment="Top" Width="111" Height="54" Click="CheckEnemyStats_Click"/>
+        <Button x:Name="CheckEnemyStats" Content="Check Enemy Stats" HorizontalAlignment="Left" Margin="0,315,0,0" VerticalAlignment="Top" Width="111" Height="54" Click="CheckEnemyStats_Click"/>
         <Button x:Name="Recover" Content="Recover" HorizontalAlignment="Left" Margin="444,261,-1,0" VerticalAlignment="Top" Width="129" Height="54" Click="Recover_Click"/>
 
     </Grid>

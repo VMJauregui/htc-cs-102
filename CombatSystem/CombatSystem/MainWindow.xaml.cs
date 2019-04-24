@@ -41,14 +41,7 @@ namespace CombatSystem
             player.ManaRegen = PlayerManaRegen;
             player.Mana = player.MaxMana;
             player.Attack = PlayerAttack;
-
-            if (player.Experience >= (player.Level * 10))
-            {
-                LevelUp NextLevel = new LevelUp(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
-                this.Close();
-                NextLevel.ShowDialog();
-            }
-
+            
         }
 
         private void FindNewEnemy_Click(object sender, RoutedEventArgs e)
@@ -65,21 +58,21 @@ namespace CombatSystem
 
         private void LevelUp_Click(object sender, RoutedEventArgs e)
         {
-            LevelUp NextLevel = new LevelUp(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
-            this.Close();
-            NextLevel.ShowDialog();
-        }
-
-        private void ExperienceUp_Click(object sender, RoutedEventArgs e)
-        {
-            player.Experience = player.Experience + 10;
-
             if (player.Experience >= (player.Level * 10))
             {
                 LevelUp NextLevel = new LevelUp(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
                 this.Close();
                 NextLevel.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show("You do not have enough Experience to level up.");
+            }
+        }
+
+        private void ExperienceUp_Click(object sender, RoutedEventArgs e)
+        {
+            player.Experience = player.Experience + 12;
         }
 
         private void End_Click(object sender, RoutedEventArgs e)

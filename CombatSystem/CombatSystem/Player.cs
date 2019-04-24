@@ -49,9 +49,9 @@ namespace CombatSystem
             MaxHealth = PlayerMaxHealth + 1 + PlayerMaxHealthUp;
             Health = MaxHealth;
             MaxMana = PlayerMaxMana + 1 + PlayerMaxManaUp;
-            ManaRegen = PlayerManaRegen + 0.25 + PlayerManaRegenUp;
+            ManaRegen = PlayerManaRegen + 0.3 + PlayerManaRegenUp;
             Mana = MaxMana;
-            Attack = PlayerAttack + 0.25 + PlayerAttackUp;
+            Attack = PlayerAttack + 0.3 + PlayerAttackUp;
         }
 
     }

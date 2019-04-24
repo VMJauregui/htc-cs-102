@@ -55,11 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dragon.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Fight.xaml.cs">
       <DependentUpon>Fight.xaml</DependentUpon>
     </Compile>
     <Compile Include="Goblin.cs" />
+    <Compile Include="Golem.cs" />
     <Compile Include="LevelUp.xaml.cs">
       <DependentUpon>LevelUp.xaml</DependentUpon>
     </Compile>

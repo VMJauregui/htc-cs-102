@@ -9,11 +9,10 @@
     <Grid>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="230" Width="570" Margin="0,0,-10,0"/>
         <Button x:Name="FindNewEnemy" Content="Find New Enemy" HorizontalAlignment="Left" Margin="334,395,0,0" VerticalAlignment="Top" Width="111" Height="54" Click="FindNewEnemy_Click"/>
-        <Button x:Name="Next" Content="Next" HorizontalAlignment="Left" Margin="111,395,0,0" VerticalAlignment="Top" Width="112" Height="54"/>
         <Button x:Name="Stats" Content="Stats" HorizontalAlignment="Left" Margin="223,395,0,0" VerticalAlignment="Top" Width="112" Height="54" Click="Stats_Click"/>
         <Button x:Name="End" Content="End" HorizontalAlignment="Left" Margin="445,395,-1,0" VerticalAlignment="Top" Width="128" Height="54" Click="End_Click"/>
         <Button x:Name="LevelUp" Content="Levep Up" HorizontalAlignment="Left" Margin="0,395,0,0" VerticalAlignment="Top" Width="112" Height="54" Click="LevelUp_Click"/>
-        <Button x:Name="ExperienceUp" Content="ExperienceUp" HorizontalAlignment="Left" Margin="0,341,0,0" VerticalAlignment="Top" Width="112" Height="54" Click="ExperienceUp_Click"/>
+        <Button x:Name="ExperienceUp" Content="Cheats" HorizontalAlignment="Left" Margin="111,395,0,0" VerticalAlignment="Top" Width="112" Height="54" Click="ExperienceUp_Click"/>
 
     </Grid>
 </Window>

@@ -42,17 +42,17 @@ namespace CombatSystem
         private void LevelUp_Click(object sender, RoutedEventArgs e)
         {
             if (choice == "MaxHealth")
-            { MaxHealthUp = 1; }
+            { MaxHealthUp = 3; }
             else if (choice == "MaxMana")
-            { MaxManaUp = 1; }
+            { MaxManaUp = 3; }
             else if (choice == "ManaRegen")
-            { ManaRegenUp = 0.25; }
+            { ManaRegenUp = 0.4; }
             else if (choice == "Attack")
-            { AttackUp = 0.25; }
+            { AttackUp = 0.4; }
 
             if (choice == "None")
             {
-                MessageBox.Show("You need to choice a stat to improve!");
+                MessageBox.Show("You need to choose a stat to improve!");
             }
             else
             {
@@ -94,13 +94,6 @@ namespace CombatSystem
         private void Attack_Click(object sender, RoutedEventArgs e)
         {
             choice = "Attack";
-        }
-
-        private void End_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow NextMainWindow = new MainWindow(player.Level, player.Experience, player.Health, player.MaxMana, player.ManaRegen, player.Attack);
-            this.Close();
-            NextMainWindow.ShowDialog();
         }
     }
 }

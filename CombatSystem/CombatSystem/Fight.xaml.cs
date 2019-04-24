@@ -48,11 +48,11 @@ namespace CombatSystem
             }
             else if ((player.Level > 5) & (MonsterSelector == 2))
             {
-                MessageBox.Show("Golems do not exist yet.");
+                enemy = new Golem(player.Level);
             }
             else if ((player.Level > 10) & (MonsterSelector == 3))
             {
-                MessageBox.Show("Dragons do not exist yet.");
+                enemy = new Dragon(player.Level);
             }
             else if ((player.Level > 1) & (MonsterSelector == 3))
             {
@@ -68,13 +68,6 @@ namespace CombatSystem
         private void CheckStats_Click(object sender, RoutedEventArgs e)
         {
             player.ShowStats();
-        }
-
-        private void End_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow NextMainWindow = new MainWindow(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
-            this.Close();
-            NextMainWindow.ShowDialog();
         }
 
         private void CheckEnemyStats_Click(object sender, RoutedEventArgs e)
@@ -94,8 +87,25 @@ namespace CombatSystem
             if (player.Mana > 3)
             {
                 player.Mana = player.Mana - 3;
-                enemy.EnemyHealth = enemy.EnemyHealth - Math.Floor(player.Attack);
-                MessageBox.Show("You burn the " + enemy.EnemyName + " with a firey blast. \nThe " + enemy.EnemyName + " received " + Math.Floor(player.Attack) + " damage.");
+                if (enemy.EnemyName == "Dragon")
+                {
+                    enemy.EnemyHealth = enemy.EnemyHealth - (Math.Floor(player.Attack / 2));
+                    MessageBox.Show("The " + enemy.EnemyName + " was resistant to your fiery blast. \nThe " + enemy.EnemyName + " received " + (Math.Floor(player.Attack / 2)) + " damage.");
+
+                }
+                else
+                {
+                    enemy.EnemyHealth = enemy.EnemyHealth - Math.Floor(player.Attack);
+                    MessageBox.Show("You burn the " + enemy.EnemyName + " with a fiery blast. \nThe " + enemy.EnemyName + " received " + Math.Floor(player.Attack) + " damage.");
+                }
+                if (enemy.EnemyHealth <= 0)
+                {
+                    MessageBox.Show("The " + enemy.EnemyName + " falls in combat. \n You have defeated your foe!");
+                    player.Experience = player.Experience + (enemy.EnemyLevel * 2);
+                    MainWindow NextMainWindow = new MainWindow(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+                    this.Close();
+                    NextMainWindow.ShowDialog();
+                }
 
                 player.Health = player.Health - Math.Floor(enemy.EnemyAttack);
                 if (enemy.EnemyName == "Goblin")
@@ -114,7 +124,15 @@ namespace CombatSystem
                 {
                     MessageBox.Show("The Dragon burns you with its fiery breath. \nYou received " + Math.Floor(enemy.EnemyAttack) + " damage.");
                 }
-                
+
+                if (player.Health <= 0)
+                {
+                    MessageBox.Show("You have been struck down in combat!");
+                    MainWindow NextMainWindow = new MainWindow(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+                    this.Close();
+                    NextMainWindow.ShowDialog();
+                }
+
                 player.Mana = player.Mana + Math.Floor(player.ManaRegen);
                 if (player.Mana > player.MaxMana)
                 {
@@ -131,9 +149,25 @@ namespace CombatSystem
         {
             if (player.Mana > 3)
             {
-                player.Mana = player.Mana - 3;
-                enemy.EnemyHealth = enemy.EnemyHealth - Math.Floor(player.Attack);
-                MessageBox.Show("You lash the " + enemy.EnemyName + " with blade of wind. \nThe " + enemy.EnemyName + " received " + Math.Floor(player.Attack) + " damage.");
+                if (enemy.EnemyName == "Wolf")
+                {
+                    enemy.EnemyHealth = enemy.EnemyHealth - (Math.Floor(player.Attack / 2));
+                    MessageBox.Show("The " + enemy.EnemyName + " was resistant to your blade of wind. \nThe " + enemy.EnemyName + " received " + (Math.Floor(player.Attack / 2)) + " damage.");
+                }
+                else
+                {
+                    player.Mana = player.Mana - 3;
+                    enemy.EnemyHealth = enemy.EnemyHealth - Math.Floor(player.Attack);
+                    MessageBox.Show("You lash the " + enemy.EnemyName + " with blade of wind. \nThe " + enemy.EnemyName + " received " + Math.Floor(player.Attack) + " damage.");
+                }
+                if (enemy.EnemyHealth <= 0)
+                {
+                    MessageBox.Show("The " + enemy.EnemyName + " falls in combat. \n You have defeated your foe!");
+                    player.Experience = player.Experience + (enemy.EnemyLevel * 2);
+                    MainWindow NextMainWindow = new MainWindow(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+                    this.Close();
+                    NextMainWindow.ShowDialog();
+                }
 
                 player.Health = player.Health - Math.Floor(enemy.EnemyAttack);
                 if (enemy.EnemyName == "Goblin")
@@ -151,6 +185,14 @@ namespace CombatSystem
                 else if (enemy.EnemyName == "Dragon")
                 {
                     MessageBox.Show("The Dragon burns you with its fiery breath. \nYou received " + Math.Floor(enemy.EnemyAttack) + " damage.");
+                }
+
+                if (player.Health <= 0)
+                {
+                    MessageBox.Show("You have been struck down in combat!");
+                    MainWindow NextMainWindow = new MainWindow(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+                    this.Close();
+                    NextMainWindow.ShowDialog();
                 }
 
                 player.Mana = player.Mana + Math.Floor(player.ManaRegen);
@@ -169,10 +211,26 @@ namespace CombatSystem
         {
             if (player.Mana > 3)
             {
-                player.Mana = player.Mana - 3;
-                enemy.EnemyHealth = enemy.EnemyHealth - Math.Floor(player.Attack);
-                MessageBox.Show("You whip the " + enemy.EnemyName + " with stream of water. \nThe " + enemy.EnemyName + " received " + Math.Floor(player.Attack) + " damage.");
-
+                if (enemy.EnemyName == "Goblin")
+                {
+                    enemy.EnemyHealth = enemy.EnemyHealth - (Math.Floor(player.Attack / 2));
+                    MessageBox.Show("The " + enemy.EnemyName + " was resistant to your stream of water. \nThe " + enemy.EnemyName + " received " + (Math.Floor(player.Attack / 2)) + " damage.");
+                }
+                else
+                {
+                    player.Mana = player.Mana - 3;
+                    enemy.EnemyHealth = enemy.EnemyHealth - Math.Floor(player.Attack);
+                    MessageBox.Show("You whip the " + enemy.EnemyName + " with stream of water. \nThe " + enemy.EnemyName + " received " + Math.Floor(player.Attack) + " damage.");
+                }
+                if (enemy.EnemyHealth <= 0)
+                {
+                    MessageBox.Show("The " + enemy.EnemyName + " falls in combat. \n You have defeated your foe!");
+                    player.Experience = player.Experience + (enemy.EnemyLevel * 2);
+                    MainWindow NextMainWindow = new MainWindow(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+                    this.Close();
+                    NextMainWindow.ShowDialog();
+                }
+                
                 player.Health = player.Health - Math.Floor(enemy.EnemyAttack);
                 if (enemy.EnemyName == "Goblin")
                 {
@@ -189,6 +247,14 @@ namespace CombatSystem
                 else if (enemy.EnemyName == "Dragon")
                 {
                     MessageBox.Show("The Dragon burns you with its fiery breath. \nYou received " + Math.Floor(enemy.EnemyAttack) + " damage.");
+                }
+
+                if (player.Health <= 0)
+                {
+                    MessageBox.Show("You have been struck down in combat!");
+                    MainWindow NextMainWindow = new MainWindow(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+                    this.Close();
+                    NextMainWindow.ShowDialog();
                 }
 
                 player.Mana = player.Mana + Math.Floor(player.ManaRegen);
@@ -207,9 +273,25 @@ namespace CombatSystem
         {
             if (player.Mana > 3)
             {
-                player.Mana = player.Mana - 3;
-                enemy.EnemyHealth = enemy.EnemyHealth - Math.Floor(player.Attack);
-                MessageBox.Show("You smash the " + enemy.EnemyName + " with giant of hunk of rock. \nThe " + enemy.EnemyName + " received " + Math.Floor(player.Attack) + " damage.");
+                if (enemy.EnemyName == "Golem")
+                {
+                    enemy.EnemyHealth = enemy.EnemyHealth - (Math.Floor(player.Attack / 2));
+                    MessageBox.Show("The " + enemy.EnemyName + " was resistant to your giant rock. \nThe " + enemy.EnemyName + " received " + (Math.Floor(player.Attack / 2)) + " damage.");
+                }
+                else
+                {
+                    player.Mana = player.Mana - 3;
+                    enemy.EnemyHealth = enemy.EnemyHealth - Math.Floor(player.Attack);
+                    MessageBox.Show("You smash the " + enemy.EnemyName + " with a giant rock. \nThe " + enemy.EnemyName + " received " + Math.Floor(player.Attack) + " damage.");
+                }
+                if (enemy.EnemyHealth <= 0)
+                {
+                    MessageBox.Show("The " + enemy.EnemyName + " falls in combat. \n You have defeated your foe!");
+                    player.Experience = player.Experience + (enemy.EnemyLevel * 2);
+                    MainWindow NextMainWindow = new MainWindow(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+                    this.Close();
+                    NextMainWindow.ShowDialog();
+                }
 
                 player.Health = player.Health - Math.Floor(enemy.EnemyAttack);
                 if (enemy.EnemyName == "Goblin")
@@ -227,6 +309,14 @@ namespace CombatSystem
                 else if (enemy.EnemyName == "Dragon")
                 {
                     MessageBox.Show("The Dragon burns you with its fiery breath. \nYou received " + Math.Floor(enemy.EnemyAttack) + " damage.");
+                }
+
+                if (player.Health <= 0)
+                {
+                    MessageBox.Show("You have been struck down in combat!");
+                    MainWindow NextMainWindow = new MainWindow(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+                    this.Close();
+                    NextMainWindow.ShowDialog();
                 }
 
                 player.Mana = player.Mana + Math.Floor(player.ManaRegen);
@@ -246,7 +336,7 @@ namespace CombatSystem
             if (player.Mana > 3)
             {
                 player.Mana = player.Mana - 3;
-                player.Health = player.Health + (Math.Floor(player.Attack) * 5);
+                player.Health = player.Health + (Math.Floor(player.Attack) * 4);
                 if (player.Health > player.MaxHealth)
                 {
                     player.Health = player.MaxHealth;
@@ -254,7 +344,7 @@ namespace CombatSystem
                 }
                 else
                 {
-                    MessageBox.Show("You recover " + (Math.Floor(player.Attack) * 5) + " health from your injuries.");
+                    MessageBox.Show("You recover " + (Math.Floor(player.Attack) * 4) + " health from your injuries.");
                 }
                 
                 player.Health = player.Health - Math.Floor(enemy.EnemyAttack);
@@ -275,6 +365,14 @@ namespace CombatSystem
                     MessageBox.Show("The Dragon burns you with its fiery breath. \nYou received " + Math.Floor(enemy.EnemyAttack) + " damage.");
                 }
 
+                if(player.Health <= 0)
+                {
+                    MessageBox.Show("You have been struck down in combat!");
+                    MainWindow NextMainWindow = new MainWindow(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+                    this.Close();
+                    NextMainWindow.ShowDialog();
+                }
+
                 player.Mana = player.Mana + Math.Floor(player.ManaRegen);
                 if (player.Mana > player.MaxMana)
                 {
@@ -290,7 +388,7 @@ namespace CombatSystem
 
         private void Recover_Click(object sender, RoutedEventArgs e)
         {
-            player.Mana = player.Mana + (player.ManaRegen * 2);
+            player.Mana = player.Mana + (Math.Floor(player.ManaRegen) * 2);
             if (player.Mana > player.MaxMana)
             {
                 player.Mana = player.MaxMana;
@@ -317,6 +415,14 @@ namespace CombatSystem
             else if (enemy.EnemyName == "Dragon")
             {
                 MessageBox.Show("The Dragon burns you with its fiery breath. \nYou received " + Math.Floor(enemy.EnemyAttack) + " damage.");
+            }
+
+            if (player.Health <= 0)
+            {
+                MessageBox.Show("You have been struck down in combat!");
+                MainWindow NextMainWindow = new MainWindow(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+                this.Close();
+                NextMainWindow.ShowDialog();
             }
         }
     }
