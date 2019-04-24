@@ -20,9 +20,28 @@ namespace CombatSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Player player = new Player();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void FindNewEnemy_Click(object sender, RoutedEventArgs e)
+        {
+            Fight NextFight = new Fight();
+            NextFight.ShowDialog();
+        }
+
+        private void Stats_Click(object sender, RoutedEventArgs e)
+        {
+            player.ShowStats();
+        }
+
+        private void LevelUp_Click(object sender, RoutedEventArgs e)
+        {
+            LevelUp NextLevel = new LevelUp();
+            NextLevel.ShowDialog();
         }
     }
 }

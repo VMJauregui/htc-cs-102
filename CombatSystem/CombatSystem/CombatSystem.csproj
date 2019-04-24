@@ -56,9 +56,23 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Enemy.cs" />
+    <Compile Include="Fight.xaml.cs">
+      <DependentUpon>Fight.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Goblin.cs" />
+    <Compile Include="LevelUp.xaml.cs">
+      <DependentUpon>LevelUp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Wolf.cs" />
+    <Page Include="Fight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LevelUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

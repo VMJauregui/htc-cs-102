@@ -5,9 +5,16 @@ namespace CombatSystem
 {
     public class Wolf : Enemy
     {
-        public Wolf(double WolfLevel, double WolfHealth, double WolfMaxMana, double WolfManaRegen, double WolfMana, double WolfAttack)
+        public double WolfLevel = 1;
+        public double WolfHealth = 1;
+        public double WolfMaxMana = 1;
+        public double WolfManaRegen = 1;
+        public double WolfMana = 1;
+        public double WolfAttack = 1;
+
+        public Wolf(double PlayerLevel)
         {
-            WolfLevel = EnemyLevel * 2;
+            WolfLevel = PlayerLevel * 2;
             WolfHealth = WolfLevel;
             WolfMana = WolfLevel;
             WolfManaRegen = WolfLevel * 0.5;
