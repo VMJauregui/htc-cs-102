@@ -5,21 +5,18 @@ namespace CombatSystem
 {
     public class Wolf : Enemy
     {
+        public string WolfName = "Wolf";
         public double WolfLevel = 1;
         public double WolfHealth = 1;
-        public double WolfMaxMana = 1;
-        public double WolfManaRegen = 1;
-        public double WolfMana = 1;
         public double WolfAttack = 1;
 
         public Wolf(double PlayerLevel)
         {
-            WolfLevel = PlayerLevel * 2;
-            WolfHealth = WolfLevel;
-            WolfMana = WolfLevel;
-            WolfManaRegen = WolfLevel * 0.5;
-            WolfMana = WolfLevel;
-            WolfAttack = WolfLevel * 0.5;
+            EnemyName = WolfName;
+            EnemyLevel = PlayerLevel;
+            EnemyMaxHealth = 5 + (PlayerLevel * 2);
+            EnemyHealth = EnemyMaxHealth;
+            EnemyAttack = 1 + (PlayerLevel * 0.4);
         }
     }
 }

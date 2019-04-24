@@ -7,6 +7,10 @@ namespace CombatSystem
     {
         public double Level = 1;
 
+        public double Experience = 0;
+
+        public double MaxHealth = 10;
+
         public double Health = 10;
 
         public double MaxMana = 10;
@@ -28,18 +32,22 @@ namespace CombatSystem
         public void ShowStats()
         {
             string StatString = "Level: " + this.Level;
-            StatString += "\nHealth: " + this.Health;
+            StatString += "\nExperience: " + this.Experience;
+            StatString += "\nMax Health: " + this.MaxHealth;
+            StatString += "\nCurrent Health: " + this.Health;
             StatString += "\nMaxMana: " + this.MaxMana;
+            StatString += "\nCurrent Mana: " + this.Mana;
             StatString += "\nManaRegen: " + Math.Floor(this.ManaRegen);
-            StatString += "\nMana: " + this.Mana;
             StatString += "\nAttack: " + Math.Floor(this.Attack);
             MessageBox.Show(StatString);
         }
 
-        public void LevelUp(double PlayerLevel, double PlayerHealth, double PlayerMaxMana, double PlayerManaRegen, double PlayerAttack, double PlayerHealthUp, double PlayerMaxManaUp, double PlayerManaRegenUp, double PlayerAttackUp)
+        public void LevelUp(double PlayerLevel, double PlayerExperience, double PlayerMaxHealth, double PlayerMaxMana, double PlayerManaRegen, double PlayerAttack, double PlayerMaxHealthUp, double PlayerMaxManaUp, double PlayerManaRegenUp, double PlayerAttackUp)
         {
             Level = PlayerLevel + 1;
-            Health = PlayerHealth + 1 + PlayerHealthUp;
+            Experience = PlayerExperience;
+            MaxHealth = PlayerMaxHealth + 1 + PlayerMaxHealthUp;
+            Health = MaxHealth;
             MaxMana = PlayerMaxMana + 1 + PlayerMaxManaUp;
             ManaRegen = PlayerManaRegen + 0.25 + PlayerManaRegenUp;
             Mana = MaxMana;

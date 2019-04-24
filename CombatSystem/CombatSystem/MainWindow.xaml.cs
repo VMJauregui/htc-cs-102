@@ -25,11 +25,36 @@ namespace CombatSystem
         public MainWindow()
         {
             InitializeComponent();
+
+            textBlock.FontSize = 20;
+            textBlock.Text = "\n \n \n Have fun playing this trial combat system!";
+        }
+
+        public MainWindow(double PlayerLevel, double PlayerExperience, double PlayerMaxHealth, double PlayerMaxMana, double PlayerManaRegen, double PlayerAttack)
+        {
+            InitializeComponent();
+            player.Level = PlayerLevel;
+            player.Experience = PlayerExperience;
+            player.MaxHealth = PlayerMaxHealth;
+            player.Health = player.MaxHealth;
+            player.MaxMana = PlayerMaxMana;
+            player.ManaRegen = PlayerManaRegen;
+            player.Mana = player.MaxMana;
+            player.Attack = PlayerAttack;
+
+            if (player.Experience >= (player.Level * 10))
+            {
+                LevelUp NextLevel = new LevelUp(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+                this.Close();
+                NextLevel.ShowDialog();
+            }
+
         }
 
         private void FindNewEnemy_Click(object sender, RoutedEventArgs e)
         {
-            Fight NextFight = new Fight();
+            Fight NextFight = new Fight(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+            this.Close();
             NextFight.ShowDialog();
         }
 
@@ -40,8 +65,27 @@ namespace CombatSystem
 
         private void LevelUp_Click(object sender, RoutedEventArgs e)
         {
-            LevelUp NextLevel = new LevelUp();
+            LevelUp NextLevel = new LevelUp(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+            this.Close();
             NextLevel.ShowDialog();
+        }
+
+        private void ExperienceUp_Click(object sender, RoutedEventArgs e)
+        {
+            player.Experience = player.Experience + 10;
+
+            if (player.Experience >= (player.Level * 10))
+            {
+                LevelUp NextLevel = new LevelUp(player.Level, player.Experience, player.MaxHealth, player.MaxMana, player.ManaRegen, player.Attack);
+                this.Close();
+                NextLevel.ShowDialog();
+            }
+        }
+
+        private void End_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Thank you for playing!");
+            this.Close();
         }
     }
 }

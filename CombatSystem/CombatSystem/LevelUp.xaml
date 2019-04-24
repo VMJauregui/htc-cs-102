@@ -13,6 +13,7 @@
         <Button x:Name="Health" Content="Health" HorizontalAlignment="Left" Margin="112,395,0,0" VerticalAlignment="Top" Width="112" Height="54" RenderTransformOrigin="1.15,-0.931" Click="Health_Click"/>
         <Button x:Name="MaxMana" Content="Max Mana" HorizontalAlignment="Left" Margin="224,395,0,0" VerticalAlignment="Top" Width="112" Height="54" Click="MaxMana_Click"/>
         <Button x:Name="ManaRegen" Content="Mana Regen" HorizontalAlignment="Left" Margin="336,395,0,0" VerticalAlignment="Top" Width="112" Height="54" Click="ManaRegen_Click"/>
+        <Button x:Name="End" Content="End" HorizontalAlignment="Left" Margin="444,341,0,0" VerticalAlignment="Top" Width="128" Height="54" Click="End_Click"/>
 
     </Grid>
 </Window>
